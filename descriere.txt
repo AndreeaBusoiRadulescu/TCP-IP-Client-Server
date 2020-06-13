@@ -1,0 +1,37 @@
+Descriere:
+
+Aplicatie de chatting care suporta conectarea mai multor utilizatori in acelasi timp.
+Programul a fost proiectat pentru a oferi un API simplu bazat pe comenzi (cuvinte cheie care incep cu '/')
+Un utilizator se poate folosi de acest API in comunicarea cu serverul prin tastarea comenzilor:
+
+1. /utilizatori
+Serverul intoarce utilizatorului o lista cu toti utilizatorii conectati in acel moment, precum si ID-urile asociate lor
+
+2. /pentru <utilizator_id>
+Utilizatorul anunta serverul de faptul ca toate mesajele non-comenzi (nu contin '/') vor fi trimise
+utilizatorului specificat prin parametrul "utilizator_id"
+
+    Exemplu:
+
+    Client 1 (initiatorul conversatiei) :
+
+    >>> /pentru 2 //conectare cu utilizatorul care are ID 2
+    >>> Buna!
+    >>> Ce faci?
+
+    Client 2 (celalalt participant al conversatiei):
+
+    >>> Buna!
+    >>> Ce faci?
+
+3. /exit
+Trimite semnal de deconectare server-ului pentru a actualizeaza lista curenta de utilizatori si pentru a inchide socket-ul deschis.
+
+Altele:
+Pentru a testa foarte usor, am creat 3 configuratii in proiectul de IntelliJ.
+- MainServer
+- ClientSocket
+- ClientSoket2
+
+Se pot deschide in paralel si apar ca tab-uri in consola. Nu mai este nevoie deschiderea unui
+nou proiect pentru fiecare client.
